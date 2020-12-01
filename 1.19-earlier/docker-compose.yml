@@ -1,0 +1,12 @@
+version: "3"
+services:
+  nginx_service:
+    container_name: nginx_1.19_earlier
+    image: nginx:1.18-alpine
+    volumes:
+      - ./templates:/etc/nginx/conf.d
+    environment:
+      - PORT=8080
+    ports:
+      - 3000:8080
+    command: sh /etc/nginx/conf.d/init.sh
